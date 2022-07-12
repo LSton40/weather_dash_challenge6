@@ -39,7 +39,7 @@ function searchHistory() {
 function findCity(city){
 
     //Translates city name to geo coordinates
-    var geoCoder = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${weatherAPIkey}`;
+    var geoCoder = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${weatherAPIkey}`;
     fetch(geoCoder)
     .then(function(response) {
         return response.json()
@@ -62,12 +62,12 @@ function findCity(city){
                 $('#windSp').text(`Wind: ${output.current.wind_speed} MPH`);
                 $('#humid').text(`Humidity: ${output.current.humidity}%`);
                 $('#uvIndex').text(`UV Index: ${output.current.uvi}`);
-                $('#weatherIcon0').attr('src', `http://openweathermap.org/img/wn/${output.current.weather[0].icon}@2x.png`)
+                $('#weatherIcon0').attr('src', `https://openweathermap.org/img/wn/${output.current.weather[0].icon}@2x.png`)
 
                 //Generates 5 day weather forecast for target city
                 for (i=1; i < 6; i++) {
                     $('#dateFore'+i).text(`Date: ${DateTime.now().plus({days:i}).toLocaleString()}`);
-                    $('#weatherIcon'+i).attr('src', `http://openweathermap.org/img/wn/${output.daily[i].weather[0].icon}.png`)
+                    $('#weatherIcon'+i).attr('src', `https://openweathermap.org/img/wn/${output.daily[i].weather[0].icon}.png`)
                     $('#tempFore'+i).text(`Temp: ${output.daily[i].temp.day}ºF`);
                     $('#windFore'+i).text(`Wind: ${output.daily[i].wind_speed} MPH`);
                     $('#humidFore'+i).text(`Humidity: ${output.daily[i].humidity}%`);
