@@ -1,95 +1,60 @@
-
+//OpenWeather API Key
 var weatherAPIkey = '17b9c273c20b59965736168d4e888831'
-var long;
-var latt;
-var city;
 
-var $cityName = $('#cityName');
-var $ul = $('#searchHistory');
-var $searchBut = $('#searchBut');
-
-var tempToday = document.querySelector('#temp').innerHTML;
-// $('#temp').text();
-
-
+//Date variables using Luxon
 var DateTime = luxon.DateTime;
 var date = DateTime.now().toLocaleString();
 
-
-
-
-
-
-
+//Retains search history on buttons on page load
 for (i=1; i < 6; i++) {
-    var keyRetrieve = $('#button'+i).id;
+    var keyRetrieve = $('#button'+i).attr('id');
     $('#button'+i).text(localStorage.getItem(keyRetrieve));
 };
 
+//Defaults to weather display of last search on page load
+findCity($('#button1').text());
 
-function findCity(city){
-    city.preventDefault();
-    city = $('#citySelect').val();
-
-
-    // localStorage.setItem(city, city);
-    // $('#button1').text(localStorage.getItem(city));
-
-
-
-    for (i=0; i < $('.buttons').length; i++) {
-        $('.buttons')[i].text($('#buttons'+i-1).text());
-        $('#button1').text(city);
-        localStorage.setItem(keyRetrieve, $('.buttons')[i].text());
-    }
-
+//Takes search input as city selection, stores search history in local storage, shown on search history buttons
+function typeCity(event){
+    event.preventDefault();
+    var city = $('#citySelect').val();
     
-    // for (i=0; i<5; i++) {
-        
-    //     // localStorage.setItem(city, city);
-    //     // $('#button1').text(localStorage.getItem(city));
+    for (i=5; i > 0; i--) {
+        var keySet = $('#button'+i).attr('id');
+        $('#button'+i).text($('#button'+(i-1)).text()); 
+        localStorage.setItem(keySet, $('#button'+i).text());
+    }
+    $('#button1').text(city);
+    localStorage.setItem($('#button1').attr('id'), $('#button1').text());
 
+    findCity(city);
+};
 
-    //     // $('#button2').text($('#button1').text());
+//Search history button function to pass button's stored city name to the weather search
+function searchHistory() {
+    findCity(this.textContent);
+};
 
-    //     if ($('#button1').text() !== $('#button'+i).text()) {
+//Function that finds the weather of a given city using the OpenWeather API
+function findCity(city){
 
-    //         $('#button1').text(localStorage.getItem(city));
-    //         // $('#button2').text($('#button1').text());
-    //     }
-
-
-    // }
-  
-
-
-    console.log(city);
-
+    //Translates city name to geo coordinates
     var geoCoder = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${weatherAPIkey}`;
-
     fetch(geoCoder)
     .then(function(response) {
         return response.json()
     })
     .then(function(data){
-        console.log(data);
+        var long = data[0].lon;
+        var latt = data[0].lat;
 
-        long = data[0].lon;
-        latt = data[0].lat;
-
-        console.log(long);
-        console.log(latt);
-
+        //Retrieves today's weather information for target city
         var todaysWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${latt}&lon=${long}&units=imperial&appid=${weatherAPIkey}`;
-        // var foreCast = `http://api.openweathermap.org/data/2.5/forecast?lat=${latt}&lon=${long}&units=imperial&cnt=5&appid=${weatherAPIkey}`;
-
         fetch(todaysWeather)
             .then(function(response) {
                 return response.json();
             })
             .then(function(output){
-                console.log(output);
-                console.log(output.current)
 
                 $('#cityName').text(city);
                 $('#todaysDate').text(DateTime.now().toLocaleString());
@@ -99,63 +64,21 @@ function findCity(city){
                 $('#uvIndex').text(`UV Index: ${output.current.uvi}`);
                 $('#weatherIcon0').attr('src', `http://openweathermap.org/img/wn/${output.current.weather[0].icon}@2x.png`)
 
-                console.log(output.daily[1].temp.day)
-
-                // .text(`Temp: ${output.daily[1].temp.day}ºF`);
-                // .text(`Wind: ${output.daily[1].wind_speed} MPH`);
-                // .text(`Humidity: ${output.daily[1].humidity}%`);
-
-                // .text(`Temp: ${output.daily[2].temp.day}ºF`);
-                // .text(`Wind: ${output.daily[2].wind_speed} MPH`);
-                // .text(`Humidity: ${output.daily[2].humidity}%`);
-
-                // .text(`Temp: ${output.daily[3].temp.day}ºF`);
-                // .text(`Wind: ${output.daily[3].wind_speed} MPH`);
-                // .text(`Humidity: ${output.daily[3].humidity}%`);
-
-                // .text(`Temp: ${output.daily[4].temp.day}ºF`);
-                // .text(`Wind: ${output.daily[4].wind_speed} MPH`);
-                // .text(`Humidity: ${output.daily[4].humidity}%`);
-
-                // .text(`Temp: ${output.daily[5].temp.day}ºF`);
-                // .text(`Wind: ${output.daily[5].wind_speed} MPH`);
-                // .text(`Humidity: ${output.daily[5].humidity}%`);
-
-
+                //Generates 5 day weather forecast for target city
                 for (i=1; i < 6; i++) {
                     $('#dateFore'+i).text(`Date: ${DateTime.now().plus({days:i}).toLocaleString()}`);
                     $('#weatherIcon'+i).attr('src', `http://openweathermap.org/img/wn/${output.daily[i].weather[0].icon}.png`)
                     $('#tempFore'+i).text(`Temp: ${output.daily[i].temp.day}ºF`);
                     $('#windFore'+i).text(`Wind: ${output.daily[i].wind_speed} MPH`);
                     $('#humidFore'+i).text(`Humidity: ${output.daily[i].humidity}%`);
-
                 }
         
             })
-        
+    });
+};
 
-            //     fetch(foreCast)
-            //         .then(function(response) {
-            //         return response.json()
-            //         })
-            //         .then(function(data){
-            //             console.log(data);
-            //     //         console.log(data.list.speed);
-            //     //         // for (i=0; i< x.length; i++) {
-            //     //         //     //data.list.speed, 
-            //     //         //     //data.list.humidity, 
-            //     //         //     //data.list.temp, 
-        
-            //     //         // }
-            //         })
-            });
+//Search Button event listener
+$('#searchBut').on('click', typeCity);
 
-
-    };
-
-
-
-
-$('#searchBut').on('click', findCity);
-
-
+//Search History Buttons event listener
+$('.buttons').on('click', searchHistory);

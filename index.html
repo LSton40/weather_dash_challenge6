@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Weather Now</title>
 </head>
+
 <body>
     <header>
-        <h1>Shiver in My Bones Just Thinking About the Weather</h1>
+        <h1>Weather Report</h1>
     </header>
 
     <section id="searchBar">
@@ -19,10 +20,10 @@
         </form>
         <div id="searchHistory">
             <button id="button1" class="buttons"></button>
-            <button id="button2" class="buttons"></button>
-            <button id="button3" class="buttons"></button>
-            <button id="button4" class="buttons"></button>
-            <button id="button5" class="buttons"></button>
+            <button id="button2" class="buttons">2</button>
+            <button id="button3" class="buttons">3</button>
+            <button id="button4" class="buttons">4</button>
+            <button id="button5" class="buttons">5</button>
         </div>
     </section>
 
@@ -30,58 +31,60 @@
         <div id="weatherNow">
             <h2 id="cityName"></h2>
             <h3 id="todaysDate"></h3>
-            <div>
-                <p id="temp"></p>
-                <p id="windSp">Wind Speed</p>
-                <p id="humid">Humidity</p>
-                <p id="uvIndex">UV Index</p>
-            </div>
-            <div>
-                <img src="" alt="" id="weatherIcon0">
+            <div class="todaysDisplay">
+                <div class="todaysStats">
+                    <p id="temp"></p>
+                    <p id="windSp">Wind Speed</p>
+                    <p id="humid">Humidity</p>
+                    <p id="uvIndex">UV Index</p>
+                </div>
+                <img src="" alt="Today's Weather Glyph" id="weatherIcon0">
             </div>
         </div>
 
-        <div id="5_Day">
+        <div id="fiveDay">
             <h2>5 Day Forecast</h2>
 
-            <div id="forecast1">
-                <h3 id="dateFore1"></h3>
-                <img src="" alt="" id="weatherIcon1">
-                <p id="tempFore1"></p>
-                <p id="windFore1"></p>
-                <p id="humidFore1"></p>
-            </div>
+            <div class="forecastBoxes">
+                <div id="forecast1" class="forecastPanel">
+                    <h3 id="dateFore1"></h3>
+                    <img src="" alt="Tomorrow's Weather Glyph" id="weatherIcon1" class="weatherGlyphs">
+                    <p id="tempFore1"></p>
+                    <p id="windFore1"></p>
+                    <p id="humidFore1"></p>
+                </div>
 
-            <div id="forecast2">
-                <h3 id="dateFore2"></h3>
-                <img src="" alt="" id="weatherIcon2">
-                <p id="tempFore2"></p>
-                <p id="windFore2"></p>
-                <p id="humidFore2"></p>
-            </div>
+                <div id="forecast2" class="forecastPanel">
+                    <h3 id="dateFore2"></h3>
+                    <img src="" alt="Day After Tomorrow's Weather Glyph" id="weatherIcon2" class="weatherGlyphs">
+                    <p id="tempFore2"></p>
+                    <p id="windFore2"></p>
+                    <p id="humidFore2"></p>
+                </div>
 
-            <div id="forecast3">
-                <h3 id="dateFore3"></h3>
-                <img src="" alt="" id="weatherIcon3">
-                <p id="tempFore3"></p>
-                <p id="windFore3"></p>
-                <p id="humidFore3"></p>
-            </div>
+                <div id="forecast3" class="forecastPanel">
+                    <h3 id="dateFore3"></h3>
+                    <img src="" alt="Three Days From Today Weather Glyph" id="weatherIcon3" class="weatherGlyphs">
+                    <p id="tempFore3"></p>
+                    <p id="windFore3"></p>
+                    <p id="humidFore3"></p>
+                </div>
 
-            <div id="forecast4">
-                <h3 id="dateFore4"></h3>
-                <img src="" alt="" id="weatherIcon4">
-                <p id="tempFore4"></p>
-                <p id="windFore4"></p>
-                <p id="humidFore4"></p>
-            </div>
+                <div id="forecast4" class="forecastPanel">
+                    <h3 id="dateFore4"></h3>
+                    <img src="" alt="Four Days From Today Weather Glyph" id="weatherIcon4" class="weatherGlyphs">
+                    <p id="tempFore4"></p>
+                    <p id="windFore4"></p>
+                    <p id="humidFore4"></p>
+                </div>
 
-            <div id="forecast5">
-                <h3 id="dateFore5"></h3>
-                <img src="" alt="" id="weatherIcon5">
-                <p id="tempFore5"></p>
-                <p id="windFore5"></p>
-                <p id="humidFore5"></p>
+                <div id="forecast5" class="forecastPanel">
+                    <h3 id="dateFore5"></h3>
+                    <img src="" alt="Five Day's From Today Weather Glyph" id="weatherIcon5" class="weatherGlyphs">
+                    <p id="tempFore5"></p>
+                    <p id="windFore5"></p>
+                    <p id="humidFore5"></p>
+                </div>
             </div>
 
         </div>

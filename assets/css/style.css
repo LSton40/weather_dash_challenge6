@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    grid-template-rows: 10vh 90vh;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+header {
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / 3;
+}
+
+h1 {
+    margin-bottom: 5px;
+    size: 15vw;
+}
+
+h3#todaysDate {
+    margin: 10px 0;
+}
+
+button {
+    background-color: rgb(91, 122, 180);
+    color: whitesmoke;
+    border-radius: 5px;
+    width: 15vw;
+    height: 5vh;
+    margin: 2px 0;
+}
+
+#searchBar {
+    background-color: bisque;
+    padding-top: 30px;
+}
+
+#citySelect {
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+#searchBut {
+    margin: 10px 20px;
+}
+
+#findCity {
+    display: flex;
+    flex-direction: column;
+}
+
+#searchHistory {
+    display: flex;
+    flex-direction: column;
+    margin: 100px 20px;
+}
+
+#currentSelection {
+    display: grid;
+    grid-template-rows: 40vh 50vh;
+
+}
+
+#weatherNow {
+    background-color: rgb(92, 92, 170);
+    padding: 10px; 
+}
+
+#weatherNow h2, h3 {
+    color:aliceblue;
+}
+
+.todaysDisplay {
+    display: flex;
+}
+
+.todaysStats {
+    margin-top: 20px;
+}
+
+.todaysStats p {
+    color:antiquewhite;
+}
+
+#weatherIcon0 {
+    margin: 0 0 50px 50px;
+    width: 20vw;
+}
+
+#fiveDay {
+    padding: 30px 20px 50px;
+    background-color: blanchedalmond;
+    text-align: center;
+}
+
+.forecastBoxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.forecastPanel {
+    background-color:rgb(52, 113, 121);
+    padding: 5px;
+    width: 14vw;
+    height: 35vh;
+    border-radius: 10px;
+}
+
+.forecastPanel p {
+    color:antiquewhite;
+}
+
+.weatherGlyphs {
+    width: 7vw;
+}
