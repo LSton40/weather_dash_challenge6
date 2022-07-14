@@ -10,9 +10,11 @@ The app presently stores up to 5 cities in its search history, allowing the user
 
 
 ## Link to App
-
+https://lston40.github.io/weather_dash_challenge6/
 
 ## Screenshot
+![_C__Users_ldsut_bootcamp_challenges_weather_dash_challenge6_index html](https://user-images.githubusercontent.com/103286445/178409162-f3ea476d-48de-483c-b8e4-b073682eb27c.png)
+
 
 
 ## Credits
