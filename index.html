@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,7 @@
     <header>
         <h1>Weather Report</h1>
     </header>
-
+    
     <section id="searchBar">
         <form action="" id="findCity">
             <input type="text" id="citySelect">
@@ -20,10 +21,10 @@
         </form>
         <div id="searchHistory">
             <button id="button1" class="buttons"></button>
-            <button id="button2" class="buttons">2</button>
-            <button id="button3" class="buttons">3</button>
-            <button id="button4" class="buttons">4</button>
-            <button id="button5" class="buttons">5</button>
+            <button id="button2" class="buttons"></button>
+            <button id="button3" class="buttons"></button>
+            <button id="button4" class="buttons"></button>
+            <button id="button5" class="buttons"></button>
         </div>
     </section>
 
@@ -38,17 +39,17 @@
                     <p id="humid"></p>
                     <p id="uvIndex"></p>
                 </div>
-                <img src="" alt="Today's Weather Glyph" id="weatherIcon0">
+                <div id="todaysImage"></div>
             </div>
         </div>
 
         <div id="fiveDay">
-            <h2>5 Day Forecast</h2>
+            <h2 id="fiverForecast"></h2>
 
             <div class="forecastBoxes">
                 <div id="forecast1" class="forecastPanel">
                     <h3 id="dateFore1"></h3>
-                    <img src="" alt="Tomorrow's Weather Glyph" id="weatherIcon1" class="weatherGlyphs">
+                    <div id="imageWrapper1"></div>
                     <p id="tempFore1"></p>
                     <p id="windFore1"></p>
                     <p id="humidFore1"></p>
@@ -56,7 +57,7 @@
 
                 <div id="forecast2" class="forecastPanel">
                     <h3 id="dateFore2"></h3>
-                    <img src="" alt="Day After Tomorrow's Weather Glyph" id="weatherIcon2" class="weatherGlyphs">
+                    <div id="imageWrapper2"></div>
                     <p id="tempFore2"></p>
                     <p id="windFore2"></p>
                     <p id="humidFore2"></p>
@@ -64,7 +65,7 @@
 
                 <div id="forecast3" class="forecastPanel">
                     <h3 id="dateFore3"></h3>
-                    <img src="" alt="Three Days From Today Weather Glyph" id="weatherIcon3" class="weatherGlyphs">
+                    <div id="imageWrapper3"></div>
                     <p id="tempFore3"></p>
                     <p id="windFore3"></p>
                     <p id="humidFore3"></p>
@@ -72,7 +73,7 @@
 
                 <div id="forecast4" class="forecastPanel">
                     <h3 id="dateFore4"></h3>
-                    <img src="" alt="Four Days From Today Weather Glyph" id="weatherIcon4" class="weatherGlyphs">
+                    <div id="imageWrapper4"></div>
                     <p id="tempFore4"></p>
                     <p id="windFore4"></p>
                     <p id="humidFore4"></p>
@@ -80,7 +81,7 @@
 
                 <div id="forecast5" class="forecastPanel">
                     <h3 id="dateFore5"></h3>
-                    <img src="" alt="Five Day's From Today Weather Glyph" id="weatherIcon5" class="weatherGlyphs">
+                    <div id="imageWrapper5"></div>
                     <p id="tempFore5"></p>
                     <p id="windFore5"></p>
                     <p id="humidFore5"></p>
@@ -90,14 +91,6 @@
         </div>
 
     </main>
-
-
-
-
-    
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
