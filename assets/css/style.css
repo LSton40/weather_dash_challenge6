@@ -30,7 +30,7 @@ h1 {
 }
 
 h3#todaysDate {
-    margin: 10px 0;
+    margin: 10px 0 30px;
 }
 
 button {
@@ -101,6 +101,7 @@ button {
 
 #weatherIcon0 {
     margin: 0 0 50px 50px;
+    padding: 0 0 100px 100px;
     width: 20vw;
 }
 
